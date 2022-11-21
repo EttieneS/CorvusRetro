@@ -20,5 +20,10 @@ namespace RugbyManagementAPI.Repositories
 
             return id;
         }
+
+        public List<Team> GetAll()
+        {
+            return _context.Teams.ToList();
+        }
     }
 }

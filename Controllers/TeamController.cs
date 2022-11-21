@@ -16,12 +16,23 @@ namespace RugbyManagementAPI.Controllers
 
         [Route("create")]
         [HttpPost]
-        public long create(Team model)
+        public long Create(Team model)
         {
             TeamRepository teamRepository = new TeamRepository(_context);
             long playerId = teamRepository.Create(model);
 
             return playerId;
         }
+
+        [Route("getall")]
+        [HttpGet]
+        public List<Team> GetAll()
+        {
+            var teamRepository = new TeamRepository(_context);
+            List<Team> teams = teamRepository.GetAll().ToList();
+         
+            return teams;
+        }
+
     }
 }
