@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RugbyManagementAPI.Models;
+using RugbyManagementAPI.ViewModels;
 using RugbyManagementAPI.Repositories;
 
 namespace RugbyManagementAPI.Controllers
@@ -25,12 +26,12 @@ namespace RugbyManagementAPI.Controllers
             return matchId;
         }
 
-        [Route("getall")]
+        [Route("getalljointeams")]
         [HttpGet]
-        public List<Match> GetAll()
+        public List<MatchViewModel> GetAllJoinTeams()
         {
             var matchRepository = new MatchRepository(_context);
-            List<Match> matches = matchRepository.GetAll();
+            var matches = matchRepository.GetAllJoinTeams();
 
             return matches;
         }
