@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Cors;
 namespace RugbyManagementAPI.Controllers
 {
     [Route("/api/[controller]")]
-    [ApiController]
-    //[EnableCors]
+    [ApiController]    
     public class PlayerController : ControllerBase
     {
         private readonly RugbyContext _context;
