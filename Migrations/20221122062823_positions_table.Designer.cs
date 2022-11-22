@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RugbyManagementAPI.Models;
 
@@ -10,9 +11,11 @@ using RugbyManagementAPI.Models;
 namespace RugbyManagementAPI.Migrations
 {
     [DbContext(typeof(RugbyContext))]
-    partial class RugbyContextModelSnapshot : ModelSnapshot
+    [Migration("20221122062823_positions_table")]
+    partial class positionstable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,20 +54,8 @@ namespace RugbyManagementAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Position")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("TeamId")
-                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 

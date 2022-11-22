@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RugbyManagementAPI.Models;
+using RugbyManagementAPI.ViewModels;
 using RugbyManagementAPI.Repositories;
-using Microsoft.AspNetCore.Cors;
 
 namespace RugbyManagementAPI.Controllers
 {
@@ -24,6 +23,26 @@ namespace RugbyManagementAPI.Controllers
             long playerId = playerRepository.Create(model);
 
             return playerId;
-        }        
+        }
+
+        [Route("getpositions")]
+        [HttpGet]
+        public List<Position> GetAll()
+        {
+            var positionRepository = new PositionRepository(_context);
+            List<Position> positions = positionRepository.GetAll().ToList();
+
+            return positions;
+        }
+
+        [Route("getalljointeams")]
+        [HttpGet]
+        public List<PlayerViewModel> GetAllJoinTeams()
+        {
+            var playerRepository = new PlayerRepository(_context);
+            var players = playerRepository.GetAllJoinTeams();
+
+            return players;
+        }
     }
 }

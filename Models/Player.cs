@@ -8,5 +8,9 @@ namespace RugbyManagementAPI.Models
     {
         public long Id { get; set; }
         public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public long Position { get; set; }
+        public Boolean Active { get; set; }
+        public long TeamId { get; set; }
     }
 }

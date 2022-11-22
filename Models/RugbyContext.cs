@@ -8,6 +8,7 @@ namespace RugbyManagementAPI.Models
             : base(options) { }
 
         public DbSet<Player> Players { get; set; }
+        public DbSet<Position> Positions { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Match> Matches { get; set; }
 
